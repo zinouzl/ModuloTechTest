@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.MainActivity"
+    android:background="@drawable/background_roller_shutter"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:padding="10dp"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/roller_shutter_settings"
+            android:textSize="25sp"
+            android:drawableBottom="@drawable/underline"
+            android:textColor="#FFFF"
+            android:id="@+id/heading_roller_shutter"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#ffff"
+            android:text="@string/device_name1"
+            android:layout_marginTop="20dp"
+            android:id="@+id/name_text_view_roller_shutter"
+            android:layout_below="@id/heading_roller_shutter"/>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name_text_view_roller_shutter"
+            android:layout_marginTop="10dp"
+            android:inputType="text"
+            android:maxLines="1"
+
+            android:textColor="#ffff"
+
+
+            android:hint="@string/enter_some_text"
+            android:id="@+id/device_name_input_roller_shutter"/>
+
+
+        <LinearLayout
+
+            android:layout_width="396dp"
+            android:layout_height="116dp"
+            android:layout_below="@id/device_name_input_roller_shutter"
+            android:layout_marginTop="20dp"
+
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/intensity_text_view_roller_shutter"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:text="@string/position"
+
+                android:textColor="#ffff"
+                android:textSize="22sp" />
+
+
+            <com.xw.repo.BubbleSeekBar
+                android:id="@+id/device_seek_bar_roller_shutter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                app:bsb_hide_bubble="true"
+                app:bsb_max="100"
+                app:bsb_min="0"
+
+                app:bsb_progress="0"
+                app:bsb_second_track_color="#FDF5E6"
+                app:bsb_section_count="5"
+                app:bsb_section_text_position="bottom_sides"
+                app:bsb_show_progress_in_float="false"
+                app:bsb_show_section_mark="true"
+                app:bsb_show_section_text="true"
+                app:bsb_show_thumb_text="true"
+                app:bsb_track_color="#FF3E00" />
+
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ok"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:textSize="18sp"
+            app:cornerRadius="15dp"
+            android:textColor="#ffff"
+            android:id="@+id/action_ok_roller_shutter"
+            tools:ignore="RelativeOverlap" />
+
+        <com.google.android.material.button.MaterialButton
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="20dp"
+            android:textSize="18sp"
+            android:textColor="#ffff"
+            android:id="@+id/action_cancel_roller_shutter"/>
+
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

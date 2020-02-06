@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">ModuloTechTest</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">User</string>
+    <string name="hello">Hello,</string>
+    <string name="name">Name</string>
+    <string name="personal_info">Personal info:</string>
+    <string name="first_name">First Name:</string>
+    <string name="last_name">Last Name</string>
+    <string name="birthday">Birthday:</string>
+    <string name="address">Address:</string>
+    <string name="street_code">Street Code:</string>
+    <string name="street">Street:</string>
+    <string name="city">City:</string>
+    <string name="postal_code">Postal Code:</string>
+    <string name="country">Country</string>
+    <string name="device_name">Device Name</string>
+    <string name="device_mode">Device mode :</string>
+    <string name="temperature">Temperature:</string>
+    <string name="_20">20</string>
+    <string name="o">o</string>
+    <string name="intensity">Intensity:</string>
+    <string name="percentage">%</string>
+    <string name="position">Position:</string>
+    <string name="lights">Lights</string>
+    <string name="heaters">Heaters</string>
+    <string name="roller_shutter">Roller Shutter</string>
+    <string name="roller_shutter_settings">Roller Shutter Settings</string>
+    <string name="device_name1">Device Name:</string>
+    <string name="enter_some_text">enter some text.</string>
+    <string name="ok">OK</string>
+    <string name="cancel">CANCEL</string>
+    <string name="light_settings">Light Settings</string>
+    <string name="device_mode1">Device Mode :</string>
+    <string name="device_intensity">Device Intensity</string>
+    <string name="heater_settings">Heater Settings</string>
+    <string name="device_temperature">Device Temperature</string>
+    <string name="user_could_not_be_updated">User could not be updated</string>
+    <string name="user_has_been_updated">User has been updated</string>
+    <string name="device_deleted">Device deleted</string>
+    <string name="heater_could_not_be_updated">Heater could not be updated</string>
+    <string name="heater_has_been_updated">Heater has been updated</string>
+    <string name="light_could_not_be_updated">Light could not be updated</string>
+    <string name="light_has_been_updated">Light has been updated</string>
+    <string name="roller_shutter_could_not_be_updated">Roller shutter could not be updated</string>
+    <string name="roller_Shutter_has_been_updated">Roller shutter has been updated</string>
+
+
+</resources>
