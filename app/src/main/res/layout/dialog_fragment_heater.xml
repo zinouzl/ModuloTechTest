@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/heater_settings"
-            android:textSize="30sp"
+            android:textSize="27sp"
             android:drawableBottom="@drawable/underline"
             android:textColor="#FFFF"
             android:id="@+id/heading"/>
@@ -62,7 +62,7 @@
         <Switch
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="25dp"
             android:layout_marginEnd="13dp"
             android:layout_alignParentEnd="true"
             android:id="@+id/device_mode_switch_heater"/>

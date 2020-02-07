@@ -1,4 +1,4 @@
-package com.example.modulotechtest.ui.main
+package com.example.modulotechtest.ui.main.editdialogfragments
 
 import android.content.Context
 import android.os.Bundle
@@ -28,7 +28,8 @@ class EditLightDialogFragment : DialogFragment() {
             mode: String,
             intensity: Int
         ): EditLightDialogFragment {
-            val mFragment = EditLightDialogFragment()
+            val mFragment =
+                EditLightDialogFragment()
             val args = Bundle()
             args.putInt(LIGHT_ID, id)
             args.putString(LIGHT_NAME, name)
@@ -67,7 +68,7 @@ class EditLightDialogFragment : DialogFragment() {
             if (device_mode_switch_light.isChecked) {
                 mode = "ON"
             }
-
+            // IF DATA CHANGED INFORM FRAGMENT TO UPDATE THE DEVICE
             if (dataChanged(
                     name,
                     device_name_input_light.text.toString(),
@@ -88,7 +89,7 @@ class EditLightDialogFragment : DialogFragment() {
         }
         action_cancel_light.setOnClickListener { dialog?.dismiss() }
     }
-
+    // TEST IF DATA HAS CHANGED
     private fun dataChanged(
         name: String,
         newName: String,
@@ -99,7 +100,7 @@ class EditLightDialogFragment : DialogFragment() {
     ): Boolean {
         return (name != newName) or (checked != newChecked) or (intensity != newIntensity)
     }
-
+    // SET LISTENER VALUE TO HOME FRAGMENT WHEN THIS DIALOG IS VISIBLE
     override fun onAttach(context: Context) {
         super.onAttach(context)
         listener = parentFragment as? HomeFragment

@@ -1,13 +1,12 @@
 package com.example.modulotechtest.room.user
 
-import android.annotation.SuppressLint
 import android.app.Application
 import androidx.lifecycle.LiveData
 import com.example.modulotechtest.model.User
 import com.example.modulotechtest.room.AppDatabase
 import javax.inject.Inject
 
-@SuppressLint("CheckResult")
+
 class UserRepository @Inject constructor(application: Application) {
 
     private val userDao: UserDao

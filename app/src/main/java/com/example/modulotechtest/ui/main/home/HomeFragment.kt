@@ -2,6 +2,7 @@ package com.example.modulotechtest.ui.main.home
 
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,9 +21,9 @@ import com.example.modulotechtest.model.device.Heater
 import com.example.modulotechtest.model.device.Light
 import com.example.modulotechtest.model.device.RollerShutter
 import com.example.modulotechtest.recyclerview.DevicesAdapter
-import com.example.modulotechtest.ui.main.EditHeaterDialogFragment
-import com.example.modulotechtest.ui.main.EditLightDialogFragment
-import com.example.modulotechtest.ui.main.EditRollerShutterDialogFragment
+import com.example.modulotechtest.ui.main.editdialogfragments.EditHeaterDialogFragment
+import com.example.modulotechtest.ui.main.editdialogfragments.EditLightDialogFragment
+import com.example.modulotechtest.ui.main.editdialogfragments.EditRollerShutterDialogFragment
 import com.example.modulotechtest.utils.DeviceUpdatedListener
 import dagger.android.support.DaggerFragment
 import io.reactivex.Completable
@@ -36,6 +37,7 @@ class HomeFragment : DaggerFragment(), DeviceUpdatedListener {
     private lateinit var homeViewModel: HomeViewModel
     @Inject
     lateinit var viewModelProviderFactory: ViewModelProvider.Factory
+    @Inject
     lateinit var deviceAdapter: DevicesAdapter
     private var firstTimeAnimation = true
 
@@ -51,15 +53,42 @@ class HomeFragment : DaggerFragment(), DeviceUpdatedListener {
                 return false
             }
 
+            // delete item if user push an item left. An alert dialog will appear to confirm the deletion
             @SuppressLint("CheckResult")
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                Completable.fromAction {
-                    homeViewModel.deleteDevice(deviceAdapter.devices[viewHolder.adapterPosition])
-                }.subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe {
-                        Toast.makeText(context, context?.getText(R.string.device_deleted), Toast.LENGTH_SHORT).show()
+                val alertDialog = activity?.let {
+                    val builder = AlertDialog.Builder(it)
+                    builder.apply {
+                        setMessage(R.string.do_you_really_want_to_delete_this_device)
+                        setTitle(R.string.delete_device)
+                        setPositiveButton(R.string.ok) { dialog, _ ->
+
+                            Completable.fromAction {
+                                homeViewModel.deleteDevice(deviceAdapter.devices[viewHolder.adapterPosition])
+                            }.subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribe {
+                                    Toast.makeText(
+                                        context,
+                                        context?.getText(R.string.device_deleted),
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+
+                                }
+                            dialog.dismiss()
+
+                        }
+                        setNegativeButton(R.string.cancel) { dialog, _ ->
+                            deviceAdapter.notifyItemChanged(viewHolder.adapterPosition)
+                            dialog.dismiss()
+                        }
+
                     }
+                    builder.create()
+
+                }
+                alertDialog?.show()
+
 
             }
 
@@ -92,7 +121,7 @@ class HomeFragment : DaggerFragment(), DeviceUpdatedListener {
         recycler_view_devices.apply {
             layoutManager = LinearLayoutManager(this.context)
             setHasFixedSize(true)
-            deviceAdapter = DevicesAdapter()
+
             deviceAdapter.listener = object : DevicesAdapter.OnItemClickListener {
                 override fun onItemClick(devices: Devices) {
                     when (devices) {
@@ -134,6 +163,8 @@ class HomeFragment : DaggerFragment(), DeviceUpdatedListener {
         subscribeObservers()
     }
 
+
+    // observe the changes on device LiveData
     private fun subscribeObservers() {
         homeViewModel.getAllDevices().removeObservers(viewLifecycleOwner)
         homeViewModel.getAllDevices().observe(viewLifecycleOwner) {
@@ -148,6 +179,8 @@ class HomeFragment : DaggerFragment(), DeviceUpdatedListener {
         }
     }
 
+
+    // this three function are for filtering data sources
     private fun lightClicked() {
         if (lights_device_check.isChecked) {
             homeViewModel.checkedRadioLights()
@@ -176,6 +209,8 @@ class HomeFragment : DaggerFragment(), DeviceUpdatedListener {
 
     }
 
+
+    //
     @SuppressLint("CheckResult")
     override fun heaterUpdated(id: Int, name: String, mode: String, temperature: Double) {
         val heater = Heater(id, name, mode, temperature)
@@ -184,10 +219,18 @@ class HomeFragment : DaggerFragment(), DeviceUpdatedListener {
         }.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnError {
-                Toast.makeText(context, context?.getText(R.string.heater_could_not_be_updated), Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    context,
+                    context?.getText(R.string.heater_could_not_be_updated),
+                    Toast.LENGTH_LONG
+                ).show()
             }
             .subscribe {
-                Toast.makeText(context, context?.getText(R.string.heater_has_been_updated), Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    context,
+                    context?.getText(R.string.heater_has_been_updated),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
     }
 
@@ -199,10 +242,18 @@ class HomeFragment : DaggerFragment(), DeviceUpdatedListener {
         }.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnError {
-                Toast.makeText(context, context?.getText(R.string.light_could_not_be_updated), Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    context,
+                    context?.getText(R.string.light_could_not_be_updated),
+                    Toast.LENGTH_LONG
+                ).show()
             }
             .subscribe {
-                Toast.makeText(context, context?.getText(R.string.light_has_been_updated), Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    context,
+                    context?.getText(R.string.light_has_been_updated),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
     }
 
@@ -214,11 +265,19 @@ class HomeFragment : DaggerFragment(), DeviceUpdatedListener {
         }.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnError {
-                Toast.makeText(context, context?.getText(R.string.roller_shutter_could_not_be_updated), Toast.LENGTH_LONG)
+                Toast.makeText(
+                    context,
+                    context?.getText(R.string.roller_shutter_could_not_be_updated),
+                    Toast.LENGTH_LONG
+                )
                     .show()
             }
             .subscribe {
-                Toast.makeText(context, context?.getText(R.string.roller_Shutter_has_been_updated), Toast.LENGTH_SHORT)
+                Toast.makeText(
+                    context,
+                    context?.getText(R.string.roller_Shutter_has_been_updated),
+                    Toast.LENGTH_SHORT
+                )
                     .show()
             }
     }

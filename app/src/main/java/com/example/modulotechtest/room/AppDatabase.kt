@@ -22,6 +22,8 @@ import javax.inject.Singleton
 @Database(entities = [User::class, Heater::class, Light::class, RollerShutter::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
 
+
+    // write to database after creation {devices} + {user}
     @Singleton
     class PopulateDbAsyncTask constructor(appDatabase: AppDatabase, baseApp: BaseApp) :
         AsyncTask<Unit, Unit, Unit>() {
@@ -45,7 +47,7 @@ abstract class AppDatabase : RoomDatabase() {
                 }
             }
             val user = jsonUtils.parseUser()
-           //android.util.Log.d(TAG, user.firstName)
+            //android.util.Log.d(TAG, user.firstName)
 
             userDao.insert(user)
 

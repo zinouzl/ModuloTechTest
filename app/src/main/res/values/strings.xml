@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">ModuloTechTest</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">User</string>
@@ -29,7 +29,7 @@
     <string name="device_name1">Device Name:</string>
     <string name="enter_some_text">enter some text.</string>
     <string name="ok">OK</string>
-    <string name="cancel">CANCEL</string>
+    <string name="cancel" tools:ignore="ButtonCase">CANCEL</string>
     <string name="light_settings">Light Settings</string>
     <string name="device_mode1">Device Mode :</string>
     <string name="device_intensity">Device Intensity</string>
@@ -44,6 +44,8 @@
     <string name="light_has_been_updated">Light has been updated</string>
     <string name="roller_shutter_could_not_be_updated">Roller shutter could not be updated</string>
     <string name="roller_Shutter_has_been_updated">Roller shutter has been updated</string>
+    <string name="do_you_really_want_to_delete_this_device">Do you really want to delete this device?</string>
+    <string name="delete_device">Delete device</string>
 
 
 </resources>

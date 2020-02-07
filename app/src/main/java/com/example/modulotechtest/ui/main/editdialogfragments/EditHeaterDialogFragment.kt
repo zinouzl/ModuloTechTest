@@ -1,4 +1,4 @@
-package com.example.modulotechtest.ui.main
+package com.example.modulotechtest.ui.main.editdialogfragments
 
 import android.content.Context
 import android.os.Bundle
@@ -28,7 +28,8 @@ class EditHeaterDialogFragment : DialogFragment() {
             mode: String,
             temperature: Double
         ): EditHeaterDialogFragment {
-            val mFragment = EditHeaterDialogFragment()
+            val mFragment =
+                EditHeaterDialogFragment()
             val args = Bundle()
             args.putInt(HEATER_ID, id)
             args.putString(HEATER_NAME, name)
@@ -62,7 +63,7 @@ class EditHeaterDialogFragment : DialogFragment() {
         device_number_picker_heater.displayedValues =
             resources.getStringArray(R.array.temperature_array)
 
-
+        // CONVERT TEMPERATURE TO PICKER POSITION
         device_number_picker_heater.value = ((temperature - 7) * 2).toInt()
 
         action_ok_heater.setOnClickListener {
@@ -71,6 +72,7 @@ class EditHeaterDialogFragment : DialogFragment() {
                 mode = "ON"
             }
             val temperaturePicker = ((device_number_picker_heater.value / 2F) + 7).toDouble()
+            // IF DATA CHANGED INFORM FRAGMENT TO UPDATE THE DEVICE
             if (dataChanged(
                     name,
                     device_name_input_heater.text.toString(),
@@ -92,6 +94,8 @@ class EditHeaterDialogFragment : DialogFragment() {
         action_cancel_heater.setOnClickListener { dialog?.dismiss() }
     }
 
+
+    // TEST IF DATA HAS CHANGED
     private fun dataChanged(
         name: String,
         newName: String,
@@ -102,7 +106,7 @@ class EditHeaterDialogFragment : DialogFragment() {
     ): Boolean {
         return (name != newName) or (checked != newChecked) or (temperature != newTemperature)
     }
-
+    // SET LISTENER VALUE TO HOME FRAGMENT WHEN THIS DIALOG IS VISIBLE
     override fun onAttach(context: Context) {
         super.onAttach(context)
         listener = parentFragment as? HomeFragment

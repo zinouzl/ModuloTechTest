@@ -9,7 +9,7 @@ import com.example.modulotechtest.model.User
 
 
 @Dao
-interface UserDao{
+interface UserDao {
 
 
     @Insert
@@ -20,5 +20,5 @@ interface UserDao{
     fun update(user: User)
 
     @Query("SELECT * FROM users_table LIMIT 1")
-    fun getUser():LiveData<User>
+    fun getUser(): LiveData<User>
 }

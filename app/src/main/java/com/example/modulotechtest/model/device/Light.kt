@@ -9,13 +9,13 @@ import androidx.room.PrimaryKey
 data class Light(
     @ColumnInfo(name = "id")
     @PrimaryKey
-    val id:Int,
+    val id: Int,
     @ColumnInfo(name = "deviceName")
     val deviceName: String,
     @ColumnInfo(name = "mode")
-    val mode:String,
+    val mode: String,
     @ColumnInfo(name = "intensity")
-    val intensity:Int
+    val intensity: Int
 ) : Devices {
     override fun getType() = Devices.TYPE_LIGHT
 }

@@ -6,6 +6,7 @@ interface Devices {
         const val TYPE_LIGHT = 112
         const val TYPE_ROLLER_SHUTTER = 113
     }
-    fun getType():Int
+
+    fun getType(): Int
 
 }

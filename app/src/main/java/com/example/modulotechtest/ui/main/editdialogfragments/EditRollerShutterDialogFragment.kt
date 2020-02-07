@@ -1,4 +1,4 @@
-package com.example.modulotechtest.ui.main
+package com.example.modulotechtest.ui.main.editdialogfragments
 
 
 import android.content.Context
@@ -27,7 +27,8 @@ class EditRollerShutterDialogFragment : DialogFragment() {
             name: String,
             position: Int
         ): EditRollerShutterDialogFragment {
-            val mFragment = EditRollerShutterDialogFragment()
+            val mFragment =
+                EditRollerShutterDialogFragment()
             val args = Bundle()
             args.putInt(ROLLER_SHUTTER_ID, id)
             args.putString(ROLLER_SHUTTER_NAME, name)
@@ -62,7 +63,7 @@ class EditRollerShutterDialogFragment : DialogFragment() {
 
         action_ok_roller_shutter.setOnClickListener {
 
-
+            // IF DATA CHANGED INFORM FRAGMENT TO UPDATE THE DEVICE
             if (dataChanged(
                     name,
                     device_name_input_roller_shutter.text.toString(),
@@ -80,7 +81,7 @@ class EditRollerShutterDialogFragment : DialogFragment() {
         }
         action_cancel_roller_shutter.setOnClickListener { dialog?.dismiss() }
     }
-
+    // TEST IF DATA HAS CHANGED
     private fun dataChanged(
         name: String,
         newName: String,
@@ -90,6 +91,7 @@ class EditRollerShutterDialogFragment : DialogFragment() {
         return (name != newName) or (position != newPosition)
     }
 
+    // SET LISTENER VALUE TO HOME FRAGMENT WHEN THIS DIALOG IS VISIBLE
     override fun onAttach(context: Context) {
         super.onAttach(context)
         listener = parentFragment as? HomeFragment

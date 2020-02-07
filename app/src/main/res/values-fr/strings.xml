@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ModuloTechTest</string>
+    <string name="title_home">Accueil</string>
+    <string name="title_dashboard">Utilisateur</string>
+    <string name="hello">Bonjour,</string>
+    <string name="name">Nom</string>
+    <string name="personal_info">Information personnelle:</string>
+    <string name="first_name">Prénom:</string>
+    <string name="last_name">Nom:</string>
+    <string name="birthday">Date de naissance:</string>
+    <string name="address">Adresse:</string>
+    <string name="street_code">Numérotation:</string>
+    <string name="street">Rue:</string>
+    <string name="city">Ville:</string>
+    <string name="postal_code">Code postal:</string>
+    <string name="country">Pays</string>
+    <string name="device_name">Nom de l\'appareil</string>
+    <string name="device_mode">Mode de l\'appareil:</string>
+    <string name="temperature">Température:</string>
+    <string name="_20">20</string>
+    <string name="o">o</string>
+    <string name="intensity">Intensité:</string>
+    <string name="percentage">%</string>
+    <string name="position">Position:</string>
+    <string name="lights">Lampes</string>
+    <string name="heaters">Radiateurs</string>
+    <string name="roller_shutter">Volets roulants</string>
+    <string name="roller_shutter_settings">Paramètres: Volet roulant</string>
+    <string name="device_name1">Nom de l\'appareil:</string>
+    <string name="enter_some_text">textview.</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Annuler</string>
+    <string name="light_settings">Paramètres: Lampe</string>
+    <string name="device_mode1">Mode de l\'appareil:</string>
+    <string name="device_intensity">Intensité de l\'appareil:</string>
+    <string name="heater_settings">Paramètres: Radiateur </string>
+    <string name="device_temperature">Température:</string>
+    <string name="user_could_not_be_updated">Echec de mettre à jour les informations de utilisateur.</string>
+    <string name="user_has_been_updated">Vos coordonnées ont été mises à jour avec succés.</string>
+    <string name="device_deleted">Appareil supprimer.</string>
+    <string name="heater_could_not_be_updated">Echec de mettre à jour le réglage du radiateur.</string>
+    <string name="heater_has_been_updated">Le réglage radiateur enregistrer avec succés.</string>
+    <string name="light_could_not_be_updated">Echec de mettre à jour le réglage de la lampe.</string>
+    <string name="light_has_been_updated">Le réglage de la lampe a été enregistrer avec succés.</string>
+    <string name="roller_shutter_could_not_be_updated">Echec de mettre à jour le réglage du volet roulant.</string>
+    <string name="roller_Shutter_has_been_updated">Le réglage du volet roulant a été enregistrer avec succés.</string>
+    <string name="do_you_really_want_to_delete_this_device">Voulez-vous vraiment supprimer cet appareil?</string>
+    <string name="delete_device">supprimer l\'appareil</string>
+
+
+</resources>

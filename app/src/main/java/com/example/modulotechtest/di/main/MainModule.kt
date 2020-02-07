@@ -4,7 +4,7 @@ import android.app.Application
 import android.graphics.drawable.Drawable
 import androidx.core.content.ContextCompat
 import com.example.modulotechtest.R
-import dagger.Binds
+import com.example.modulotechtest.recyclerview.DevicesAdapter
 import dagger.Module
 import dagger.Provides
 
@@ -16,6 +16,12 @@ object MainModule {
     @Provides
     fun provideUserDrawable(application: Application):Drawable{
         return ContextCompat.getDrawable(application, R.drawable.user_image)!!
+    }
+
+    @JvmStatic
+    @Provides
+    fun provideDevicesAdapter():DevicesAdapter{
+        return DevicesAdapter()
     }
 
 

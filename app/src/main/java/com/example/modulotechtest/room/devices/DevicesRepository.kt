@@ -25,7 +25,6 @@ class DevicesRepository @Inject constructor(val application: Application) {
 
     private val allRollerShutter = MediatorLiveData<List<RollerShutter>>()
 
-
     init {
         val devicesDatabase =
             AppDatabase(application)
@@ -87,6 +86,8 @@ class DevicesRepository @Inject constructor(val application: Application) {
         }
     }
 
+
+    // checked functions are for start observing liveData and unchecked functions are for disposing.
     fun checkedRadioHeaters() {
         allHeaters.addSource(heaterDao.getAllHeaters()) {
             allHeaters.value = it

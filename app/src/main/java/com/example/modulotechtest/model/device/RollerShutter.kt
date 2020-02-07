@@ -9,11 +9,11 @@ import androidx.room.PrimaryKey
 class RollerShutter(
     @ColumnInfo(name = "id")
     @PrimaryKey
-    val id:Int,
+    val id: Int,
     @ColumnInfo(name = "deviceName")
-    val deviceName:String,
+    val deviceName: String,
     @ColumnInfo(name = "position")
-    val position:Int
+    val position: Int
 ) : Devices {
     override fun getType() = Devices.TYPE_ROLLER_SHUTTER
 }

@@ -13,8 +13,9 @@ import com.example.modulotechtest.model.device.RollerShutter
 import kotlinx.android.synthetic.main.heater_item.view.*
 import kotlinx.android.synthetic.main.light_item.view.*
 import kotlinx.android.synthetic.main.roller_shutter_item.view.*
+import javax.inject.Inject
 
-class DevicesAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class DevicesAdapter @Inject constructor() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 
     var devices = listOf<Devices>()
@@ -64,6 +65,8 @@ class DevicesAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
     }
 
+
+    // Light custom viewHolder
     inner class LightHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         private val textViewName = itemView.light_device_name
@@ -79,13 +82,13 @@ class DevicesAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 }
             }
         }
+
         // binding the view to device
         fun bind(position: Int) {
             val light = devices[position] as Light
             textViewName.text = light.deviceName
             textViewName.isSelected = true
             val text = "${textViewMode.resources.getString(R.string.device_mode)} ${light.mode}"
-            //textViewMode.text = "Device mode : ${light.mode}"
             textViewMode.text = text
             textViewIntensity.text = light.intensity.toString()
             if (light.mode == "ON") {
@@ -98,6 +101,7 @@ class DevicesAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     }
 
+    // Heater custom ViewHolder
     inner class HeaterHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         private val textViewName = itemView.heater_device_name
@@ -134,6 +138,7 @@ class DevicesAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     }
 
+    // RollerShutter custom ViewHolder
     inner class RollerShutterHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         private val textViewName = itemView.roller_shutter_name
@@ -151,6 +156,7 @@ class DevicesAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         fun bind(position: Int) {
             val rollerShutter = devices[position] as RollerShutter
             textViewName.text = rollerShutter.deviceName
+            textViewName.isSelected = true
             textViewPosition.text = rollerShutter.position.toString()
         }
 

@@ -79,6 +79,8 @@
             <LinearLayout
                 android:id="@+id/personal_info_linear_layout"
                 android:layout_width="match_parent"
+                android:background="@drawable/rounded_edit"
+                android:padding="10dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="1dp"
                 android:layout_marginStart="1dp"
@@ -89,7 +91,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/background_roller_shutter"
+                    android:background="@drawable/background_heater"
                     android:elevation="5dp"
                     android:paddingEnd="5dp"
                     android:paddingStart="5dp"
@@ -179,6 +181,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="1dp"
                 android:layout_marginTop="50dp"
+                android:background="@drawable/rounded_edit"
+                android:padding="10dp"
                 android:layout_marginEnd="1dp"
                 android:orientation="vertical">
 
@@ -186,7 +190,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/background_roller_shutter"
+                    android:background="@drawable/background_heater"
                     android:elevation="5dp"
                     android:paddingStart="5dp"
                     android:paddingEnd="5dp"
